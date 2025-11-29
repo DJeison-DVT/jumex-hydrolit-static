@@ -1,8 +1,90 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import SideCharacter from "../components/SideCharacter.astro";
+
+import locationIcon from "../assets/images/tiendas/Icono.png";
+import chedraui from "../assets/images/tiendas/pleca chedraui3.png";
+import todasLasSucursales from "../assets/images/tiendas/todas la sucursales_.png";
+import cdmxEdoMex from "../assets/images/tiendas/ubicadaS en CDMX y  Estado de México_.png";
 ---
 
 <Layout
 	title="Tiendas Participantes - Jumex Hydrolit"
 	currentPage="/tiendas-participantes"
-/>
+>
+	<div class="h-full relative w-screen overflow-x-hidden">
+		<div class="hidden lg:block">
+			<SideCharacter position="left" />
+		</div>
+		<div
+			class="flex flex-col h-full items-end justify-center gap-8 lg:pl-80"
+		>
+			<!-- Large versions for md screens and above -->
+			<Image
+				src={todasLasSucursales}
+				alt="Todas las sucursales"
+				height={120}
+				class="mr-14 hidden md:block"
+			/>
+			<!-- Small version for smaller screens -->
+			<Image
+				src={todasLasSucursales}
+				alt="Todas las sucursales"
+				height={70}
+				class="mr-2 block md:hidden"
+			/>
+
+			<!-- Large version -->
+			<Image
+				src={chedraui}
+				alt="Chedraui"
+				height={150}
+				class="hidden md:block"
+			/>
+			<!-- Small version -->
+			<Image
+				src={chedraui}
+				alt="Chedraui"
+				height={80}
+				class="block md:hidden"
+			/>
+
+			<div class="relative mr-2 md:mr-14">
+				<div class="absolute -top-10 -left-28 md:block hidden">
+					<Image
+						src={locationIcon}
+						alt="Icono de ubicación"
+						class="mr-2"
+						height={120}
+					/>
+				</div>
+				<div class="absolute -top-8 -left-20 md:hidden block">
+					<Image
+						src={locationIcon}
+						alt="Icono de ubicación"
+						class="mr-2"
+						height={80}
+					/>
+				</div>
+
+				<!-- Large version -->
+				<Image
+					src={cdmxEdoMex}
+					alt="UbicadaS en CDMX y  Estado de México"
+					height={120}
+					class="hidden md:block"
+				/>
+				<!-- Small version -->
+				<Image
+					src={cdmxEdoMex}
+					alt="UbicadaS en CDMX y  Estado de México"
+					height={70}
+					class="block md:hidden"
+				/>
+			</div>
+		</div>
+	</div>
+</Layout>
