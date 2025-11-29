@@ -16,11 +16,8 @@ import cdmxEdoMex from "../assets/images/tiendas/ubicadaS en CDMX y  Estado de M
 	currentPage="/tiendas-participantes"
 >
 	<div class="h-full relative w-screen overflow-x-hidden">
-		<div class="hidden lg:block">
-			<SideCharacter position="left" />
-		</div>
 		<div
-			class="flex flex-col h-full items-end justify-center gap-8 lg:pl-80"
+			class="flex flex-col h-full items-end justify-center gap-8 lg:pl-80 relative z-80"
 		>
 			<!-- Large versions for md screens and above -->
 			<Image
@@ -86,5 +83,6 @@ import cdmxEdoMex from "../assets/images/tiendas/ubicadaS en CDMX y  Estado de M
 				/>
 			</div>
 		</div>
+		<SideCharacter position="left" />
 	</div>
 </Layout>
