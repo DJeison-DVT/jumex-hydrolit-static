@@ -14,7 +14,7 @@ const { position } = Astro.props;
 
 <div
 	class:list={[
-		"absolute bottom-0 h-full pointer-events-none z-30 flex flex-col justify-end ",
+		"absolute bottom-0 inset-y-0 pointer-events-none z-30 flex flex-col justify-end",
 		{
 			"left-0": position === "left",
 			"right-0": position === "right",
@@ -22,11 +22,12 @@ const { position } = Astro.props;
 	]}
 >
 	<!-- Character Image -->
-	<div class="relative max-h-full w-fit">
+	<div class="relative w-fit max-h-full">
 		<Image
 			src={position === "right" ? paty : patyAlt}
 			alt="Paty"
-			class="h-full w-auto object-contain object-bottom"
+			class="h-auto max-h-screen w-auto object-contain object-bottom"
+			loading="eager"
 		/>
 
 		<!-- Logos at bottom -->
