@@ -1,8 +1,32 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import SideCharacter from "../components/SideCharacter.astro";
+
+import procuctosParticipantes from "../assets/images/productos/PRODUCTOS PARTICIPANTES_.png";
+import productosTable from "../assets/images/productos/Productos.png";
 ---
 
-<Layout
-	title="Productos Participantes - Jumex Hydrolit"
-	currentPage="/productos-participantes"
-/>
+<Layout title="Jumex Hydrolit - Inicio" currentPage="/">
+	<div class="h-full relative overflow-x-hidden">
+		<SideCharacter position="right" />
+		<div
+			class="flex flex-col h-full z-80 relative items-center justify-center gap-8 lg:max-w-[60vw] mx-auto"
+		>
+			<Image
+				src={procuctosParticipantes}
+				alt="Productos Participantes"
+				height={120}
+				class="px-12"
+			/>
+
+			<div class="relative p-2">
+				<Image
+					src={productosTable}
+					alt="Productos Participantes Tabla"
+					height={400}
+				/>
+			</div>
+		</div>
+	</div>
+</Layout>
