@@ -1,8 +1,76 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import SideCharacter from "../components/SideCharacter.astro";
+
+import txtAcumular from "../assets/images/participar/10_.png";
+import whatsappNumber from "../assets/images/participar/5623-196-793_.png";
+import logo from "../assets/images/participar/LOGO HYDROLIT OUTLINE-.png";
+import instructions from "../assets/images/participar/Manda tu ticket de compra de al     menos 2_.png";
+import whatsappIcon from "../assets/images/global/WhatsApp.png";
+import bullet from "../assets/images/participar/bullet.png";
 ---
 
-<Layout
-	title="Cómo Participar - Jumex Hydrolit"
-	currentPage="/como-participar"
-/>
+<Layout title="Jumex Hydrolit - Inicio" currentPage="/">
+	<div class="h-full relative w-screen overflow-x-hidden">
+		<div class="hidden lg:block">
+			<SideCharacter position="right" />
+		</div>
+		<div
+			class="flex flex-col h-full items-center justify-center gap-8 lg:pr-80"
+		>
+			<div class="flex">
+				<Image
+					src={whatsappNumber}
+					alt="Numero de WhatsApp"
+					class="hidden md:block"
+					height={80}
+				/>
+				<Image
+					src={whatsappNumber}
+					alt="Numero de WhatsApp"
+					class="block md:hidden"
+					height={45}
+				/>
+
+				<Image
+					src={whatsappIcon}
+					alt="Icono de WhatsApp"
+					class="ml-2"
+					height={80}
+				/>
+			</div>
+			<div class="relative p-8">
+				<Image
+					src={instructions}
+					alt="Manda tu ticket de compra de al menos 2"
+					height={120}
+				/>
+				<div class="absolute bottom-0 right-0">
+					<Image
+						src={logo}
+						alt="Logo Jumex Hydrolit"
+						height={90}
+						class="pl-36 pr-2"
+					/>
+				</div>
+			</div>
+			<div class="relative
+						h-fit
+						w-fit">
+				<Image
+					src={bullet}
+					alt="Fondo de burbujas"
+					class="w-full h-auto"
+				/>
+				<div class="absolute inset-0 flex items-center justify-center">
+					<Image
+						src={txtAcumular}
+						alt="Acumular puntos es muy fácil"
+						height={200}
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
