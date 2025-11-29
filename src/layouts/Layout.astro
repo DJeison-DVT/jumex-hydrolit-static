@@ -1,0 +1,167 @@
+---
+import "../styles/global.css";
+
+import { Image } from "astro:assets";
+
+import logo from "../assets/LOGO HYDROLIT OUTLINE-.png";
+import background from "../assets/Fondo.png";
+import navPremios from "../assets/images/navbar/PREMIOS_.png";
+import navComoParticipar from "../assets/images/navbar/Cómo participar_.png";
+import navTerminos from "../assets/images/navbar/Términos y condiciones_.png";
+import navTiendas from "../assets/images/navbar/Tiendas participantes_.png";
+import navProductos from "../assets/images/navbar/Productos participantes_.png";
+
+interface Props {
+	title: string;
+	currentPage?: string;
+}
+
+const { title, currentPage = "" } = Astro.props;
+
+const navItems = [
+	{ image: navPremios, alt: "Premios", href: "/premios" },
+	{
+		image: navComoParticipar,
+		alt: "Cómo Participar",
+		href: "/como-participar",
+	},
+	{
+		image: navTerminos,
+		alt: "Términos y Condiciones",
+		href: "/terminos-y-condiciones",
+	},
+	{
+		image: navTiendas,
+		alt: "Tiendas Participantes",
+		href: "/tiendas-participantes",
+	},
+	{
+		image: navProductos,
+		alt: "Productos Participantes",
+		href: "/productos-participantes",
+	},
+];
+---
+
+<html lang="es" class="h-full">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="h-full">
+		<div class="h-screen flex flex-col">
+			<!-- Header -->
+			<header class="text-white shadow-lg">
+				<div class="container mx-auto relative">
+					<div class="flex items-center justify-between h-full">
+						<!-- Logo -->
+						<div class="shrink-0 px-7 py-7">
+							<a href="/" class="text-2xl font-bold">
+								<Image
+									src={logo}
+									alt="JUMEX HYDROLIT"
+									width={250}
+									height={100}
+								/>
+							</a>
+						</div>
+						<!-- Navigation -->
+						<nav class="hidden lg:flex gap-2 h-full items-end z-0">
+							{
+								navItems.map((item) => (
+									<a
+										href={item.href}
+										class:list={[
+											"transition-transform translate-y-6 hover:translate-y-4",
+											{
+												"translate-y-4!":
+													currentPage === item.href,
+											},
+										]}
+									>
+										<Image
+											src={item.image}
+											alt={item.alt}
+											height={80}
+										/>
+									</a>
+								))
+							}
+						</nav>
+
+						<div class="h-full">
+							<!-- Mobile menu button -->
+							<button
+								id="mobile-menu-button"
+								class="lg:hidden p-2 rounded-lg"
+							>
+								<svg
+									class="max-h-[100px] h-full w-auto min-h-[50px]"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M4 6h16M4 12h16M4 18h16"></path>
+								</svg>
+							</button>
+						</div>
+					</div>
+
+					<!-- Mobile menu -->
+					<nav
+						id="mobile-menu"
+						class="hidden absolute top-full left-0 right-0 backdrop-blur-sm shadow-xl z-50"
+					>
+						{
+							navItems.map((item) => (
+								<a
+									href={item.href}
+									class:list={[
+										"block px-4  hover: overflow-hidden mt-1",
+										{
+											"": currentPage === item.href,
+										},
+									]}
+								>
+									<Image
+										src={item.image}
+										alt={item.alt}
+										height={120}
+										class="object-cover object-top max-h-[60px] rounded-2xl"
+									/>
+								</a>
+							))
+						}
+					</nav>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<main
+				class="flex-1 w-screen relative z-10"
+				style={`background-image: url(${background.src}); background-position: center top; background-repeat: no-repeat; background-size: cover;`}
+			>
+				<div class="h-full flex flex-col w-full">
+					<slot />
+				</div>
+			</main>
+		</div>
+
+		<script>
+			// Mobile menu toggle
+			const menuButton = document.getElementById("mobile-menu-button");
+			const mobileMenu = document.getElementById("mobile-menu");
+
+			menuButton?.addEventListener("click", () => {
+				mobileMenu?.classList.toggle("hidden");
+			});
+		</script>
+	</body>
+</html>
