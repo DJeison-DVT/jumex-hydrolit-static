@@ -4,29 +4,49 @@ import Layout from "../layouts/Layout.astro";
 import SideCharacter from "../components/SideCharacter.astro";
 
 import procuctosParticipantes from "../assets/images/productos/PRODUCTOS PARTICIPANTES_.png";
+import botellas from "../assets/images/productos/productos-participantes.png";
 import productosTable from "../assets/images/productos/Productos.png";
+import CharacterImage from "../components/CharacterImage.astro";
 ---
 
 <Layout title="Jumex Hydrolit - Inicio" currentPage="/">
-	<div class="h-full relative overflow-x-hidden">
-		<SideCharacter position="right" />
+	<div class="h-full relative overflow-x-hidden lg:grid grid-cols-3">
 		<div
-			class="flex flex-col h-full z-80 relative items-center justify-center gap-8 lg:max-w-[60vw] mx-auto"
+			class="flex flex-col relative z-90 items-center justify-start lg:max-w-[40vw] gap-4 mx-auto col-span-2"
 		>
 			<Image
 				src={procuctosParticipantes}
 				alt="Productos Participantes"
 				height={120}
-				class="px-12"
+				class="px-24 lg:px-1 pt-12"
 			/>
-
-			<div class="relative p-2">
-				<Image
-					src={productosTable}
-					alt="Productos Participantes Tabla"
-					height={400}
-				/>
-			</div>
+			<!--  -->
+			<Image
+				src={botellas}
+				alt="Botellas Participantes"
+				height={500}
+				class="hidden md:block z-20"
+			/>
+			<Image
+				src={botellas}
+				alt="Botellas Participantes"
+				height={300}
+				class="block md:hidden"
+			/>
+			<!--  -->
+			<Image
+				src={productosTable}
+				alt="Productos Participantes Tabla"
+				height={200}
+			/>
+		</div>
+		<div class="relative
+					flex
+					justify-center
+					lg:hidden">
+			<CharacterImage position="left" />
 		</div>
 	</div>
+
+	<SideCharacter position="right" />
 </Layout>

@@ -1,9 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import paty from "../assets/images/global/PATY.png";
-import patyAlt from "../assets/images/tiendas/PATY.png";
-import firma from "../assets/images/global/Firma Talento.png";
-import logoJumex from "../assets/images/global/Logo JUMEX.png";
+import CharacterImage from "./CharacterImage.astro";
 
 interface Props {
 	position: "left" | "right";
@@ -14,7 +10,7 @@ const { position } = Astro.props;
 
 <div
 	class:list={[
-		"absolute bottom-0 inset-y-0 pointer-events-none z-30 flex flex-col justify-end",
+		"hidden lg:absolute bottom-0 inset-y-0 pointer-events-none z-80 lg:flex flex-col justify-end",
 		{
 			"left-0": position === "left",
 			"right-0": position === "right",
@@ -23,19 +19,6 @@ const { position } = Astro.props;
 >
 	<!-- Character Image -->
 	<div class="relative w-fit max-h-full">
-		<Image
-			src={position === "right" ? paty : patyAlt}
-			alt="Paty"
-			class="h-auto max-h-screen w-auto object-contain object-bottom"
-			loading="eager"
-		/>
-
-		<!-- Logos at bottom -->
-		<div
-			class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex gap-4 items-center"
-		>
-			<Image src={firma} alt="Firma Talento" height={90} />
-			<Image src={logoJumex} alt="Logo JUMEX" height={90} />
-		</div>
+		<CharacterImage position={position} />
 	</div>
 </div>

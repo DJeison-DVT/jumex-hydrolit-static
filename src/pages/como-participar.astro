@@ -5,16 +5,15 @@ import SideCharacter from "../components/SideCharacter.astro";
 
 import txtAcumular from "../assets/images/participar/10_.png";
 import whatsappNumber from "../assets/images/participar/5623-196-793_.png";
-import logo from "../assets/images/participar/LOGO HYDROLIT OUTLINE-.png";
 import instructions from "../assets/images/participar/Manda tu ticket de compra de al     menos 2_.png";
 import whatsappIcon from "../assets/images/global/WhatsApp.png";
 import bullet from "../assets/images/participar/bullet.png";
 import sendMessage from "../assets/images/participar/Envía un mensaje de whats al_.png";
+import CharacterImage from "../components/CharacterImage.astro";
 ---
 
 <Layout title="Jumex Hydrolit - Inicio" currentPage="/">
-	<div class="h-full relative w-screen overflow-x-hidden">
-		<SideCharacter position="right" />
+	<div class="h-full relative w-full">
 		<div
 			class="flex flex-col h-full items-center justify-center gap-8 lg:pr-80 z-80 relative"
 		>
@@ -52,14 +51,6 @@ import sendMessage from "../assets/images/participar/Envía un mensaje de whats 
 					alt="Manda tu ticket de compra de al menos 2"
 					height={120}
 				/>
-				<div class="absolute bottom-0 right-0">
-					<Image
-						src={logo}
-						alt="Logo Jumex Hydrolit"
-						height={90}
-						class="pl-36 pr-2"
-					/>
-				</div>
 			</div>
 			<div class="relative
 						h-fit
@@ -78,5 +69,10 @@ import sendMessage from "../assets/images/participar/Envía un mensaje de whats 
 				</div>
 			</div>
 		</div>
+		<div class="relative flex justify-center lg:hidden">
+			<CharacterImage position="left" />
+		</div>
+
+		<SideCharacter position="right" />
 	</div>
 </Layout>

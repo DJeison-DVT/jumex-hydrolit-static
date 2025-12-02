@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import paty from "../assets/images/global/PATY.png";
+import patyAlt from "../assets/images/tiendas/PATY.png";
+import firma from "../assets/images/global/Firma Talento.png";
+import logoJumex from "../assets/images/global/Logo JUMEX.png";
+
+interface Props {
+	position: "left" | "right";
+}
+
+const { position } = Astro.props;
+---
+
+<Image
+	src={position === "right" ? paty : patyAlt}
+	alt="Paty"
+	class="h-auto max-h-screen w-auto object-contain object-bottom overflow-x-hidden"
+	loading="eager"
+/>
+
+<!-- Logos at bottom -->
+<div
+	class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 justify-center items-center"
+>
+	<Image src={firma} alt="Firma Talento" height={90} />
+	<Image src={logoJumex} alt="Logo JUMEX" height={90} />
+</div>

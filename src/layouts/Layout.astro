@@ -145,12 +145,10 @@ const navItems = [
 
 			<!-- Content -->
 			<main
-				class="flex-1 w-screen relative z-10"
+				class="flex-1 w-full relative z-10 overflow-x-hidden"
 				style={`background-image: url(${background.src}); background-position: center top; background-repeat: no-repeat; background-size: cover;`}
 			>
-				<div class="h-full flex flex-col w-full">
-					<slot />
-				</div>
+				<slot />
 			</main>
 		</div>
 
